@@ -1,0 +1,6 @@
+<button class="btn btn-primary" (click)="onClick()">Display Details</button>
+<p *ngIf="isDisplayEnabled"> Dwarf Warrior</p>
+<div *ngFor="let dwarf of dwarfWarriors"
+    [ngStyle]="{backgroundColor: dwarf > 4 ? 'blue' : 'transparent'}"
+    [ngClass]="{party: dwarf > 4}">{{dwarf}}>
+</div>  
