@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Router } from '@angular/router';
 import { User } from './user.model';
 import { AuthResponseData } from './auth.service';
@@ -25,7 +26,7 @@ export class AuthService {
 
     signup(email: string, password: string) {
         return this.http.post<AuthResponseData>(
-            'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCAN67jrzo4V_7dtcKL_qKM7z_1Z9DhItQ',
+            `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebaseAPIKey}`,
             {
                 email: email,
                 password: password,
@@ -40,7 +41,7 @@ export class AuthService {
     }
 
     login(email: string, password: string) {
-        return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCAN67jrzo4V_7dtcKL_qKM7z_1Z9DhItQ',
+        return this.http.post<AuthResponseData>(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseAPIKey}`,
         {
             email: email,
             password: password,

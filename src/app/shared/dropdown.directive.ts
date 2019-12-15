@@ -5,7 +5,7 @@ import {Directive, ElementRef, HostListener, HostBinding} from '@angular/core';
 })
 export class DropdownDirective {
     @HostBinding('class.open') isOpen: boolean = false;
-    @HostListener('click') onClick(event: Event) {
+    @HostListener('click') onClick() {
         this.isOpen = !this.isOpen
     }
     constructor(private eleRef: ElementRef){
